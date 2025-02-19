@@ -1,0 +1,715 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', 'Arial', sans-serif;
+    background: #0A0D28;
+    color: #CCCCFF;
+}
+
+.intro-screen {
+    text-align: center;
+    height: 100vh; /* Take up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 15rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: fadeIn 1.0s ease-in-out;
+}
+
+h3 {
+    font-size: 4.5rem;
+    margin: 1rem 0rem;
+}
+
+/* Introduction Section Styling */
+#introduction-section {
+    width: 80%;
+    max-width: 1500px;
+    display: flex;
+    gap: 3.5rem;
+    padding: 3.5rem;
+    background-color: #11153A;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 5rem auto 0 auto; /* Adds space above the introduction section */
+}
+
+.image-container {
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+.intro-photo {
+    width: 500px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #A0A5FF;
+}
+
+.intro-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.sub-header {
+    font-size: 3rem;
+    margin-bottom: 0.25rem;
+    color: #A0A5FF;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.85rem;
+    line-height: 1.7;
+    color: #E0E0FF;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    position: absolute; /* Change from fixed to absolute */
+    top: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out; /* Add fade-out effect */
+}
+
+/* Hide the navbar when not on the intro screen */
+.navbar.hidden {
+    opacity: 0;
+    pointer-events: none; /* Disable clicks when hidden */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #CCCCFF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #FFD700; /* Change color on hover */
+    transform: translateY(-3px);
+}
+
+/* Adjust section padding to account for scroll behavior */
+#introduction-section,
+#skillsets-section,
+#education-section,
+#work-experience-section,
+#projects-section,
+#contact-section {
+    scroll-margin-top: 5rem; /* Adjust this value to match your navbar height or desired offset */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        background-color: #0A0D28; /* Add background for better visibility */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Resume Button Styling */
+.resume-button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 3rem; /* Add space above the button */
+}
+
+.resume-button {
+    font-size: 1.8rem;
+    color: #0A0D28;
+    background-color: #A0A5FF;
+    padding: 1.25rem 1.75rem 1rem 1.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+}
+
+.resume-button:hover {
+    background-color: #FFD700;
+    transform: translateY(-3px);
+}
+
+/* Social Media Icons Section Styling */
+.social-media-icons {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.social-icon {
+    font-size: 2.5rem;
+    color: #CCCCFF;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.social-icon:hover {
+    color: #FFD700; /* Change color on hover */
+    transform: translateY(-5px); /* Add a slight lift effect */
+}
+
+/* Skillsets Section Styling */
+#skillsets-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items at the top */
+    text-align: center; /* Center the text inside the header */
+    padding-top: 5rem; /* Add space from the top */
+}
+
+.main-header {
+    font-size: 6rem;
+    color: #A0A5FF;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-description {
+    font-size: 1.85rem;
+    max-width: 1450px;
+    margin-bottom: 3rem;
+}
+
+/* Skillsets Container */
+.skillsets-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 1500px;
+}
+
+/* Individual Skill Boxes */
+.skill-box {
+    flex: 1;
+    min-width: 280px; /* Ensures responsiveness on smaller screens */
+    max-width: 400px;
+    padding: 2.5rem;
+    background-color: #11153A;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+}
+
+.skill-box h3 {
+    font-size: 2.5rem;
+    color: #A0A5FF;
+    margin-bottom: 1rem;
+}
+
+.skill-box i {
+    font-size: 4rem; /* Adjust icon size */
+    color: #A0A5FF; /* Icon color */
+    margin-bottom: 2.5rem;
+    display: block;
+}
+
+.skill-box p {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+}
+
+.skill-box h4 {
+    font-size: 2rem;
+    color: #A0A5FF;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-box ul {
+    list-style-type: none; /* Removes default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.skill-box li {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    margin-bottom: 1.5rem;
+}
+
+/* Education Section Styling */
+#education-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items at the top */
+    text-align: center; /* Center the text inside the header */
+    padding-top: 5rem; /* Add space from the top */
+}
+
+.education-timeline {
+    position: relative;
+    width: 80%;
+    max-width: 1400px;
+}
+
+/* Vertical line */
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 100%;
+    background: #A0A5FF;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: #01274C;
+    border: 6px solid #A0A5FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timeline-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 50%; /* If your image is circular */
+}
+
+.timeline-content {
+    width: calc(50% - 50px);
+    padding: 2.5rem;
+    background: #11153A;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+/* Position content alternately */
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: calc(50% + 80px);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: calc(50% + 80px);
+}
+
+.timeline-date {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #A0A5FF;
+    background: none;
+    text-align: center;
+    top: 3rem; /* This matches the top padding of timeline-item */
+    margin-top: 40px; /* Half the height of the icon (80px/2) to center with it */
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    left: calc(50% + 80px); /* distance from center line */
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    right: calc(50% + 80px); /* distance from center line */
+}
+
+.timeline-content h3 {
+    font-size: 2.5rem;
+    color: #A0A5FF;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+}
+
+.timeline-content p {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    margin: 0.5rem 0;
+}
+
+.timeline-content .gpa {
+    font-size: 1.6rem;
+    color: #FFD700; /* Gold color for emphasis */
+    text-align: left;
+}
+
+.timeline-content .courses {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .education-timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        justify-content: flex-start;
+    }
+    
+    .timeline-icon {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 90px);
+        margin-left: 90px !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-date {
+        left: 120px !important;
+        right: auto !important;
+        top: 3rem !important;
+        margin-top: 40px !important;
+    }
+}
+
+/* Work Experience Section Styling */
+#work-experience-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+/* Horizontal Job Titles */
+.job-titles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
+    max-width: 1500px;
+}
+
+.job-title-item {
+    padding: 1.5rem;
+    background: #11153A;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures date is at the bottom */
+}
+
+.job-title-item:hover {
+    background: #01274C;
+    transform: translateY(-5px);
+}
+
+.job-title-item.active {
+    background: #01274C;
+    border: 3px solid #A0A5FF; /* Outline the entire item with light purple */
+}
+
+.job-title-item h3 {
+    font-size: 1.8rem;
+    color: #A0A5FF;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+}
+
+.job-title-item p {
+    font-size: 1.4rem;
+    color: #E0E0FF;
+    margin: 0.5rem 0;
+}
+
+.job-title-item .date {
+    font-size: 1.4rem;
+    color: #FFD700; /* Gold color for emphasis */
+    margin-top: auto; /* Pushes the date to the bottom */
+}
+
+/* Horizontal Purple Line */
+.horizontal-line {
+    width: 80%;
+    max-width: 1500px;
+    height: 3px;
+    background: #A0A5FF;
+    margin: 2rem auto;
+}
+
+/* Job Descriptions */
+.job-descriptions {
+    width: 80%;
+    max-width: 1500px;
+    margin-top: 1rem;
+}
+
+.description-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 2rem; /* Consistent padding */
+    background: #11153A;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.description-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.description-content h3 {
+    font-size: 2.5rem;
+    color: #A0A5FF;
+    margin-bottom: 0.5rem;
+}
+
+.description-content .company {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    margin-bottom: 0.5rem;
+}
+
+.description-content .location {
+    font-size: 1.4rem;
+    color: #FFD700; /* Gold color for emphasis */
+    margin-bottom: 1.5rem;
+}
+
+.description-content ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+.description-content li {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .job-titles {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .job-title-item {
+        min-width: 100%;
+    }
+}
+
+/* My Projects Section Styling */
+#projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+    gap: 3rem;
+    width: 80%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #11153A;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-size: 2.5rem;
+    color: #A0A5FF;
+    line-height: 1.25;
+}
+
+.project-card p {
+    font-size: 1.6rem;
+    color: #E0E0FF;
+    margin-top: 0rem;
+    line-height: 1.7;
+}
+
+.project-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    font-size: 1.6rem;
+    color: #0A0D28;
+    background-color: #A0A5FF;
+    padding: 1rem 1.75rem 0.75rem 1.75rem; /* Top, Right, Bottom, Left */
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: auto; /* Pushes the button to the bottom */
+}
+
+.project-button:hover {
+    background-color: #FFD700;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Switch to 1 column on smaller screens */
+    }
+}
+
+/* Contact Section Styling */
+#contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem; /* Add space at the bottom */
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: #11153A;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 3rem;
+    color: #A0A5FF;
+}
+
+.contact-item p {
+    font-size: 2rem;
+    color: #E0E0FF;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
