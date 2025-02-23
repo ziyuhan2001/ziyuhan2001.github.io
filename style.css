@@ -4,6 +4,12 @@ body {
     font-family: 'League Spartan', 'Arial', sans-serif;
     background: #0A0D28;
     color: #CCCCFF;
+    cursor: none;
+}
+
+/* Hide cursor on interactive elements */
+a, button, input, textarea, select, .nav-link, .resume-button, .project-button, .social-icon, .job-title-item {
+    cursor: none;
 }
 
 .intro-screen {
@@ -13,19 +19,101 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
+.intro-screen h1 {
     font-size: 15rem;
     margin: 0;
     text-transform: uppercase;
     font-weight: bold;
     animation: fadeIn 1.0s ease-in-out;
+    position: relative;
+    z-index: 1;
 }
 
 h3 {
     font-size: 4.5rem;
     margin: 1rem 0rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Starry Background Animation */
+.starry-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0A0D28;
+    overflow: hidden;
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
+.starry-background::before,
+.starry-background::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+.starry-background::before {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0.5s;
+}
+
+.starry-background::after {
+    top: 50%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.star {
+    position: absolute;
+    width: 2px; /* Base size */
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8), /* Inner glow */
+                0 0 10px rgba(255, 255, 255, 0.6), /* Middle glow */
+                0 0 20px rgba(255, 255, 255, 0.4); /* Outer glow */
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                    0 0 10px rgba(255, 255, 255, 0.6),
+                    0 0 20px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                    0 0 20px rgba(255, 255, 255, 0.8),
+                    0 0 30px rgba(255, 255, 255, 0.6);
+    }
 }
 
 /* Introduction Section Styling */
@@ -449,7 +537,6 @@ p {
     padding: 1.5rem;
     background: #11153A;
     border-radius: 10px;
-    cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
     text-align: center;
     flex: 1;
@@ -701,6 +788,36 @@ p {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Custom Cursor Styling */
+.custom-cursor {
+    position: fixed;
+    width: 45px; /* Initial size of the cursor */
+    height: 45px;
+    background: radial-gradient(
+        circle,
+        rgba(160, 165, 255, 1) 20%, /* Light purple center */
+        rgba(160, 165, 255, 0.5) 40%, /* Mid fade */
+        rgba(160, 165, 255, 0) 60% /* Fully transparent at the edges */
+    );
+    border-radius: 50%;
+    pointer-events: none; /* Ensure the cursor doesn't interfere with clicks */
+    transform: translate(-50%, -50%); /* Center the cursor on the mouse position */
+    transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Smooth transitions */
+    z-index: 9999; /* Ensure it's above all other elements */
+}
+
+/* Cursor Hover Effects */
+.custom-cursor.hover {
+    width: 60px; /* Increase size on hover */
+    height: 60px;
+    background: radial-gradient(
+        circle,
+        rgba(160, 165, 255, 1) 20%, /* Light purple center */
+        rgba(160, 165, 255, 0.5) 40%, /* Mid fade */
+        rgba(160, 165, 255, 0) 70% /* Fully transparent at the edges */
+    );
 }
 
 @keyframes fadeIn {

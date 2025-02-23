@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const starryBackground = document.querySelector(".starry-background");
+
+    // Function to create a star
+    function createStar() {
+        const star = document.createElement("div");
+        star.className = "star";
+        const size = Math.random() * 3 + 1; // Random size between 1px and 4px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starryBackground.appendChild(star);
+    }
+
+    // Create multiple stars
+    for (let i = 0; i < 150; i++) {
+        createStar();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
     const phrases = ["industrial engineer.", "data analyst.", "software developer.", "problem solver.", "continuous learner.", "badminton enthusiast."];
     let currentIndex = 0;
     let letterIndex = 0;
@@ -115,6 +137,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const index = item.getAttribute("data-index");
             item.classList.add("active");
             descriptionContents[index].classList.add("active");
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cursor = document.querySelector(".custom-cursor");
+
+    // Move the cursor with the mouse
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Add hover effect when hovering over interactive elements
+    const hoverElements = document.querySelectorAll("a, button, .nav-link, .resume-button, .project-button, .social-icon, .job-title-item");
+    hoverElements.forEach((element) => {
+        element.addEventListener("mouseenter", () => {
+            cursor.classList.add("hover");
+        });
+        element.addEventListener("mouseleave", () => {
+            cursor.classList.remove("hover");
         });
     });
 });
