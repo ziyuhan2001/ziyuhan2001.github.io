@@ -167,9 +167,27 @@ p {
     position: absolute; /* Change from fixed to absolute */
     top: 0;
     right: 0;
+    left: 0; /* Ensure navbar spans the full width */
     padding: 1.5rem 2rem;
     z-index: 1000;
     transition: opacity 0.5s ease-in-out; /* Add fade-out effect */
+    display: flex; /* Use flexbox to align logo and nav-links */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between logo and nav-links */
+}
+
+/* Logo Container Styling */
+.logo-container {
+    position: relative; /* Change from absolute to relative */
+    top: auto; /* Reset top positioning */
+    left: auto; /* Reset left positioning */
+    z-index: 1001; /* Ensure it's above the navbar */
+}
+
+/* Logo Image Styling */
+.logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
 }
 
 /* Hide the navbar when not on the intro screen */
@@ -741,25 +759,30 @@ p {
     justify-content: flex-start;
     text-align: center;
     padding-top: 5rem;
-    padding-bottom: 5rem; /* Add space at the bottom */
 }
 
 .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 3rem; /* Space between grid items */
+    width: 80%;
+    max-width: 1500px;
+    margin: 0 auto; /* Center the grid horizontally */
+    justify-items: center; /* Center items horizontally within the grid */
 }
 
 .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center content horizontally */
     gap: 1.5rem;
     padding: 2rem;
     background-color: #11153A;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
+    width: 400px; /* Fixed width for all boxes */
+    max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
 }
 
 .contact-item:hover {
@@ -788,6 +811,23 @@ p {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* Bottom Logo Container Styling */
+.bottom-logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #0A0D28; /* Match the background color */
+    position: relative; /* Ensure it stays at the bottom */
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Bottom Logo Image Styling */
+.bottom-logo {
+    width: 75px; /* Adjust size as needed */
+    height: auto;
 }
 
 /* Custom Cursor Styling */
