@@ -119,7 +119,7 @@ h3 {
 /* Introduction Section Styling */
 #introduction-section {
     width: 80%;
-    max-width: 1500px;
+    max-width: 1400px;
     display: flex;
     gap: 3.5rem;
     padding: 3.5rem;
@@ -309,7 +309,7 @@ p {
 
 .section-description {
     font-size: 1.85rem;
-    max-width: 1450px;
+    max-width: 1400px;
     margin-bottom: 3rem;
 }
 
@@ -548,7 +548,7 @@ p {
     justify-content: center;
     gap: 2rem;
     width: 80%;
-    max-width: 1500px;
+    max-width: 1400px;
 }
 
 .job-title-item {
@@ -597,7 +597,7 @@ p {
 /* Horizontal Purple Line */
 .horizontal-line {
     width: 80%;
-    max-width: 1500px;
+    max-width: 1400px;
     height: 3px;
     background: #A0A5FF;
     margin: 2rem auto;
@@ -606,7 +606,7 @@ p {
 /* Job Descriptions */
 .job-descriptions {
     width: 80%;
-    max-width: 1500px;
+    max-width: 1400px;
     margin-top: 1rem;
 }
 
@@ -684,7 +684,7 @@ p {
     grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
     gap: 3rem;
     width: 80%;
-    max-width: 1500px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 

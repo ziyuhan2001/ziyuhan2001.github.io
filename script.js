@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Create multiple stars
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 50; i++) {
         createStar();
     }
 });
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Add hover effect when hovering over interactive elements
-    const hoverElements = document.querySelectorAll("a, button, .nav-link, .resume-button, .project-button, .social-icon, .job-title-item");
+    const hoverElements = document.querySelectorAll("a, button, input, textarea, select, .nav-link, .resume-button, .project-button, .social-icon, .job-title-item");
     hoverElements.forEach((element) => {
         element.addEventListener("mouseenter", () => {
             cursor.classList.add("hover");
