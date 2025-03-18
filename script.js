@@ -1,23 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
     const starryBackground = document.querySelector(".starry-background");
-
-    // Function to create a star
-    function createStar() {
-        const star = document.createElement("div");
-        star.className = "star";
-        const size = Math.random() * 3 + 1; // Random size between 1px and 4px
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.animationDelay = `${Math.random() * 2}s`;
-        starryBackground.appendChild(star);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    
+    // Make canvas fill the container
+    function resizeCanvas() {
+        canvas.width = starryBackground.offsetWidth;
+        canvas.height = starryBackground.offsetHeight;
     }
 
-    // Create multiple stars
-    for (let i = 0; i < 50; i++) {
-        createStar();
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    starryBackground.appendChild(canvas);
+
+    // Star configuration
+    const stars = [];
+    const numStars = 100;
+
+    // Create fixed star positions
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1,
+            opacity: Math.random() * 0.5 + 0.5,
+            phase: Math.random() * Math.PI * 2 // Random starting phase
+        });
     }
+
+    // Animation function
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const time = Date.now() / 1000; // Current time in seconds
+        
+        stars.forEach(star => {
+            // Calculate current opacity and size based on time
+            const flicker = Math.sin(time * 2 + star.phase);
+            const currentOpacity = star.opacity * (0.7 + 0.3 * flicker);
+            const currentSize = star.size * (1 + 0.2 * flicker);
+
+            // Draw star with gradient
+            const gradient = ctx.createRadialGradient(
+                star.x, star.y, 0,
+                star.x, star.y, currentSize * 2
+            );
+            
+            gradient.addColorStop(0.1, `rgba(255, 255, 255, ${currentOpacity})`);
+            gradient.addColorStop(0.4, `rgba(255, 255, 255, ${currentOpacity * 0.6})`);
+            gradient.addColorStop(0.8, 'rgba(255, 255, 255, 0)');
+
+            ctx.beginPath();
+            ctx.fillStyle = gradient;
+            ctx.arc(star.x, star.y, currentSize * 2, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
