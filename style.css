@@ -327,8 +327,8 @@ p {
 /* Individual Skill Boxes */
 .skill-box {
     flex: 1;
-    min-width: 280px; /* Ensures responsiveness on smaller screens */
-    max-width: 400px;
+    min-width: 180px; /* Ensures responsiveness on smaller screens */
+    max-width: 300px;
     padding: var(--spacing-lg);
     background-color: var(--color-bg-secondary);
     border-radius: var(--radius-md);
