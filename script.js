@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const phrases = ["industrial engineer.", "data analyst.", "software developer.", "problem solver.", "continuous learner.", "badminton enthusiast."];
+    const phrases = ["industrial engineer.", "data engineer.", "data analyst.", "process improver.", "problem solver.", "continuous learner.", "badminton enthusiast."];
     let currentIndex = 0;
     let letterIndex = 0;
     const h3Element = document.querySelector(".intro-screen h3");

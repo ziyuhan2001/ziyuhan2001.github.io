@@ -255,7 +255,6 @@ p {
 
 .resume-button:hover {
     background-color: var(--color-highlight);
-    transform: translateY(-3px);
 }
 
 
@@ -554,9 +553,9 @@ p {
 
 .job-title-item {
     padding: var(--spacing-sm);
-    background: var(--color-bg-secondary);
+    background-color: var(--color-bg-secondary);
     border-radius: var(--radius-sm);
-    transition: background var(--transition-default), transform var(--transition-default), border var(--transition-default);
+    transition: background-color var(--transition-default), transform var(--transition-default), border var(--transition-default);
     text-align: center;
     flex: 1;
     min-width: 200px;
@@ -748,6 +747,81 @@ p {
 @media screen and (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr; /* Switch to 1 column on smaller screens */
+    }
+}
+
+/* Certificates Section Styling */
+#certificates-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: var(--spacing-xxxl);
+}
+
+.certificates-grid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+}
+
+.certificate-card {
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-default);
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-default);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.certificate-icon {
+    font-size: 4rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+}
+
+.certificate-card h3 {
+    font-size: var(--font-sm);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xxxs);
+}
+
+.certificate-date {
+    font-size: var(--font-small);
+    color: var(--color-highlight);
+    margin-bottom: var(--spacing-md);
+}
+
+.certificate-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs);
+    font-size: var(--font-small);
+    color: var(--color-bg-primary);
+    background-color: var(--color-accent);
+    padding: var(--spacing-xs) 1.75rem 0.75rem 1.75rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-default), transform var(--transition-default);
+}
+
+.certificate-button:hover {
+    background-color: var(--color-highlight);
+}
+
+@media screen and (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
     }
 }
 
